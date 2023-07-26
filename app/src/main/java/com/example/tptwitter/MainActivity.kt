@@ -6,16 +6,27 @@ import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
+import com.example.tptwitter.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var myView : ActivityMainBinding;
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        // Ca charge la vue databindé
+        myView = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+
+        // Lors du clique du boutton
+        myView.btnLogin.setOnClickListener {
+            onSubmitLogin()
+        }
     }
 
-    fun onSubmitLogin(view: View) {
+    fun onSubmitLogin() {
         // Vider le message d'erreur
-        findViewById<TextView>(R.id.tvError).text = ""
+        myView.tvError.text = ""
 
         // Par défaut 0 erreur
         var errors : ArrayList<String> = ArrayList<String>()
@@ -23,13 +34,13 @@ class MainActivity : AppCompatActivity() {
         // Je verifier les champs
 
         // Si l'email est invalide
-        val edtLogin = findViewById<EditText>(R.id.edtLogin)
+        val edtLogin = myView.edtLogin
         if (edtLogin.text.isNullOrEmpty() || edtLogin.text.toString().length < 4){
             errors.add("Email invalide")
         }
 
         // Si le de ma passe est invalide
-        val edtPassword = findViewById<EditText>(R.id.edtPassword)
+        val edtPassword = myView.edtPassword
         if (edtPassword.text.isNullOrEmpty() || edtPassword.text.toString().length < 6){
             errors.add("Password invalide")
         }
@@ -43,7 +54,7 @@ class MainActivity : AppCompatActivity() {
             for (error in errors){
                 message += "\n" + error
             }
-            findViewById<TextView>(R.id.tvError).text =message
+            myView.tvError.text = message
         }
     }
 }

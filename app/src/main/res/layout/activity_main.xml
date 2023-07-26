@@ -1,228 +1,223 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Header-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#58B0F0"
-        android:padding="20dp"
-        >
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
 
-        <ImageButton
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="#00000000"
-            android:scaleType="fitXY"
-            android:src="@drawable/pencil" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="@color/white"
-            android:textAlignment="center"
-            android:text="Accueil"/>
-
-        <ImageButton
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="#00000000"
-            android:scaleType="fitXY"
-            android:src="@drawable/search" />
-    </LinearLayout>
-
-    <!-- Body -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
-
-        <!-- Login -->
+        <!-- Header-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="15dp"
-            android:orientation="vertical">
+            android:background="#58B0F0"
+            android:padding="20dp">
 
-            <!--  Titre de connexion-->
+            <ImageButton
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="#00000000"
+                android:scaleType="fitXY"
+                android:src="@drawable/pencil" />
+
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Connexion à Twitter"
+                android:layout_weight="1"
+                android:text="Accueil"
                 android:textAlignment="center"
-                android:textColor="@color/grey71"
-                />
+                android:textColor="@color/white" />
 
-            <EditText
-                android:id="@+id/edtLogin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Identifiant"
-                />
-
-            <EditText
-                android:id="@+id/edtPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:hint="Mot de passe"
-                />
-
-            <!--  Memoriser mes info-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <Switch
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Mémoriser mes informations"
-                    android:textColor="@color/grey71"
-                    />
-
-            </LinearLayout>
-
-            <!-- Message d'erreur (vide par défaut)-->
-            <TextView
-                android:id="@+id/tvError"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:textColor="#FF0000"
-                android:text="" />
-
-            <!--  Le bouton submit-->
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Se connecter"
-                android:onClick="onSubmitLogin"
-                />
-
+            <ImageButton
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="#00000000"
+                android:scaleType="fitXY"
+                android:src="@drawable/search" />
         </LinearLayout>
 
-        <!-- Tweet-->
+        <!-- Body -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-            <!--  Image + Textes -->
+            <!-- Login -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="15dp">
 
-                <ImageView
-                    android:src="@drawable/tweet_profil"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    />
+                <!--  Titre de connexion-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Connexion à Twitter"
+                    android:textAlignment="center"
+                    android:textColor="@color/grey71" />
 
+                <EditText
+                    android:id="@+id/edtLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Identifiant" />
+
+                <EditText
+                    android:id="@+id/edtPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Mot de passe"
+                    android:inputType="textPassword" />
+
+                <!--  Memoriser mes info-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
+
+                    <Switch
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
 
                     <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Mémoriser mes informations"
+                        android:textColor="@color/grey71" />
+
+                </LinearLayout>
+
+                <!-- Message d'erreur (vide par défaut)-->
+                <TextView
+                    android:id="@+id/tvError"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text=""
+                    android:textColor="#FF0000" />
+
+                <!--  Le bouton submit-->
+                <Button
+                    android:id="@+id/btnLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Se connecter" />
+
+            </LinearLayout>
+
+            <!-- Tweet-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!--  Image + Textes -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/tweet_profil" />
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingVertical="10dp"
-                        android:text="morgan.nott@campus-eni.fr"
-                        />
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text=" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, delectus eius facilis necessitatibus nulla obcaecati quibusdam quis reiciendis."/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingVertical="10dp"
+                            android:text="morgan.nott@campus-eni.fr" />
 
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, delectus eius facilis necessitatibus nulla obcaecati quibusdam quis reiciendis." />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- Les 3 boutons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <ImageButton
+                        android:layout_width="0dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:background="#00000000"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/reply" />
+
+                    <ImageButton
+                        android:layout_width="0dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:background="#00000000"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/retweet" />
+
+                    <ImageButton
+                        android:layout_width="0dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:background="#00000000"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/favorite" />
                 </LinearLayout>
 
             </LinearLayout>
 
-            <!-- Les 3 boutons -->
-            <LinearLayout
-                android:layout_width="match_parent"
+        </LinearLayout>
+
+        <!-- Footer -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+
+            <TextView
+                style="@style/FooterBtnStyle"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="10dp"
-                >
-                <ImageButton
-                    android:layout_width="0dp"
-                    android:layout_height="25dp"
-                    android:background="#00000000"
-                    android:scaleType="centerInside"
-                    android:layout_weight="1"
-                    android:src="@drawable/reply" />
+                android:layout_weight="1"
+                android:text="Fil"
+                android:textColor="#58B0F0" />
 
-                <ImageButton
-                    android:layout_width="0dp"
-                    android:layout_height="25dp"
-                    android:background="#00000000"
-                    android:scaleType="centerInside"
-                    android:layout_weight="1"
-                    android:src="@drawable/retweet" />
+            <TextView
+                style="@style/FooterBtnStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Notification" />
 
-                <ImageButton
-                    android:layout_width="0dp"
-                    android:layout_height="25dp"
-                    android:background="#00000000"
-                    android:scaleType="centerInside"
-                    android:layout_weight="1"
-                    android:src="@drawable/favorite"/>
-            </LinearLayout>
+            <TextView
+                style="@style/FooterBtnStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Messages" />
+
+            <TextView
+                style="@style/FooterBtnStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Moi" />
 
         </LinearLayout>
 
     </LinearLayout>
-
-    <!-- Footer -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp">
-
-        <TextView
-            style="@style/FooterBtnStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="#58B0F0"
-            android:text="Fil"/>
-
-        <TextView
-            style="@style/FooterBtnStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Notification"/>
-
-        <TextView
-            style="@style/FooterBtnStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Messages"/>
-
-        <TextView
-            style="@style/FooterBtnStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Moi"/>
-
-    </LinearLayout>
-
-</LinearLayout>
+</layout>
