@@ -17,27 +17,33 @@ class MainActivity : AppCompatActivity() {
         // Vider le message d'erreur
         findViewById<TextView>(R.id.tvError).text = ""
 
+        // Par défaut 0 erreur
+        var errors : ArrayList<String> = ArrayList<String>()
+
         // Je verifier les champs
-        var errorMessage = ""
 
         // Si l'email est invalide
         val edtLogin = findViewById<EditText>(R.id.edtLogin)
         if (edtLogin.text.isNullOrEmpty() || edtLogin.text.toString().length < 4){
-            errorMessage = "Email invalide"
+            errors.add("Email invalide")
         }
 
         // Si le de ma passe est invalide
         val edtPassword = findViewById<EditText>(R.id.edtPassword)
         if (edtPassword.text.isNullOrEmpty() || edtPassword.text.toString().length < 6){
-            errorMessage = "Password invalide"
+            errors.add("Password invalide")
         }
 
         //  Si y'a un au moins une erreur
-        if (errorMessage.isNotEmpty()){
+        if (errors.isNotEmpty()){
             // Avant
             // Log.e("TpTwitterLogin", String.format("Erreur formulaire : %s", errorMessage))
             // Afficher le message d'erreur
-            findViewById<TextView>(R.id.tvError).text = errorMessage
+            var message = ""
+            for (error in errors){
+                message += "\n" + error
+            }
+            findViewById<TextView>(R.id.tvError).text =message
         }
     }
 }
