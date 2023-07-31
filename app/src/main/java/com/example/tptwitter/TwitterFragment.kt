@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 
 /**
  * A simple [Fragment] subclass.
@@ -22,6 +23,17 @@ class TwitterFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_twitter, container, false)
+        val view = inflater.inflate(R.layout.fragment_twitter, container, false)
+
+        // Récupère le recycler view
+        var rvTweets = view.findViewById<RecyclerView>(R.id.rvTweets)
+
+        // Instancier et liéer l'Adapter
+
+        // Données liste de tweets mock
+        
+        // Submit des données dans la liste
+
+        return view
     }
 }

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Tweet-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--  Image + Textes -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/tweet_profil" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="10dp"
+                    android:text="morgan.nott@campus-eni.fr" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, delectus eius facilis necessitatibus nulla obcaecati quibusdam quis reiciendis." />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Les 3 boutons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:scaleType="centerInside"
+                android:src="@drawable/reply" />
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:scaleType="centerInside"
+                android:src="@drawable/retweet" />
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:scaleType="centerInside"
+                android:src="@drawable/favorite" />
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>
