@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="tweet"
+            type="com.example.tptwitter.Tweet" />
+    </data>
+
     <!-- Tweet-->
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,12 +32,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingVertical="10dp"
-                    android:text="morgan.nott@campus-eni.fr" />
+                    android:text="@{tweet.author, default=`morgan.nott@campus-eni.fr`}" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text=" Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, delectus eius facilis necessitatibus nulla obcaecati quibusdam quis reiciendis." />
+                    android:text="@{tweet.message, default=`Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, delectus eius facilis necessitatibus nulla obcaecati quibusdam quis reiciendis.`}" />
 
             </LinearLayout>
 

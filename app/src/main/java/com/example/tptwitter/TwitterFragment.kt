@@ -29,10 +29,16 @@ class TwitterFragment : Fragment() {
         var rvTweets = view.findViewById<RecyclerView>(R.id.rvTweets)
 
         // Instancier et liéer l'Adapter
+        var adapter = TwitterAdapter()
+        rvTweets.adapter = adapter
 
         // Données liste de tweets mock
-        
+        var tweets = arrayListOf(Tweet(1, "Zian", "Je sais plus"),
+            Tweet(2, "Kevin", "Pas de jean stp"),
+            Tweet(3, "Octavia", "Tétine Master"))
+
         // Submit des données dans la liste
+        adapter.submitList(tweets)
 
         return view
     }
