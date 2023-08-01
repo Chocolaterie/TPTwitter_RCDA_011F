@@ -1,4 +1,8 @@
 package com.example.tptwitter
 
-class Tweet(var id: Int, var author: String, var message :String) {
+import com.squareup.moshi.Json
+
+class Tweet(@Json(name="id") var id: Int,
+            @Json(name="author") var author: String,
+            @Json(name="message") var message :String) {
 }

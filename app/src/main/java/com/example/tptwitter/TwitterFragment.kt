@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.launch
 
 /**
  * A simple [Fragment] subclass.
@@ -33,12 +35,12 @@ class TwitterFragment : Fragment() {
         rvTweets.adapter = adapter
 
         // Données liste de tweets mock
-        var tweets = arrayListOf(Tweet(1, "Zian", "Je sais plus"),
-            Tweet(2, "Kevin", "Pas de jean stp"),
-            Tweet(3, "Octavia", "Tétine Master"))
+        lifecycleScope.launch {
+            var tweets = TweetApi.retrofitService.getTweets()
 
-        // Submit des données dans la liste
-        adapter.submitList(tweets)
+            // Submit des données dans la liste
+            adapter.submitList(tweets)
+        }
 
         return view
     }
