@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.launch
@@ -16,6 +17,9 @@ import kotlinx.coroutines.launch
  */
 class TwitterFragment : Fragment() {
 
+    lateinit var viewFragment : View
+    lateinit var adapter : TwitterAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -25,14 +29,27 @@ class TwitterFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_twitter, container, false)
+        viewFragment = inflater.inflate(R.layout.fragment_twitter, container, false)
 
         // Récupère le recycler view
-        var rvTweets = view.findViewById<RecyclerView>(R.id.rvTweets)
+        var rvTweets = viewFragment.findViewById<RecyclerView>(R.id.rvTweets)
 
         // Instancier et liéer l'Adapter
-        var adapter = TwitterAdapter()
+        adapter = TwitterAdapter()
         rvTweets.adapter = adapter
+
+        return viewFragment
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        appelAPI()
+    }
+
+    fun appelAPI(){
+        // Récupère le recycler view
+        var rvTweets = viewFragment.findViewById<RecyclerView>(R.id.rvTweets)
 
         // Données liste de tweets mock
         lifecycleScope.launch {
@@ -41,7 +58,5 @@ class TwitterFragment : Fragment() {
             // Submit des données dans la liste
             adapter.submitList(tweets)
         }
-
-        return view
     }
 }
