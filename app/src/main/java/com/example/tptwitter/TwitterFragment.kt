@@ -48,9 +48,6 @@ class TwitterFragment : Fragment() {
     }
 
     fun appelAPI(){
-        // Récupère le recycler view
-        var rvTweets = viewFragment.findViewById<RecyclerView>(R.id.rvTweets)
-
         // Données liste de tweets mock
         lifecycleScope.launch {
             var tweets = TweetApi.retrofitService.getTweets()
