@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.launch
@@ -19,6 +20,7 @@ class TwitterFragment : Fragment() {
 
     lateinit var viewFragment : View
     lateinit var adapter : TwitterAdapter
+    lateinit var viewModel: TwitterViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,22 +40,19 @@ class TwitterFragment : Fragment() {
         adapter = TwitterAdapter()
         rvTweets.adapter = adapter
 
+        // Instancier le view model
+        viewModel = TwitterViewModel()
+
+        viewModel.tweets.observe(viewLifecycleOwner, Observer {
+            adapter.submitList(it)
+        })
+
         return viewFragment
     }
 
     override fun onResume() {
         super.onResume()
 
-        appelAPI()
-    }
-
-    fun appelAPI(){
-        // Données liste de tweets mock
-        lifecycleScope.launch {
-            var tweets = TweetApi.retrofitService.getTweets()
-
-            // Submit des données dans la liste
-            adapter.submitList(tweets)
-        }
+        viewModel.appelAPI()
     }
 }
